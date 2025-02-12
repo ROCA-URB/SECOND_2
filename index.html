@@ -39,13 +39,11 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/ZPN04_USO_DE_SUELO_2.js"></script>
-        <script src="data/ZPN04_MANZANAS1_3.js"></script>
-        <script src="data/ZPN04_COLONIAS_4.js"></script>
-        <script src="data/ZPN04_VIALIDADES_5.js"></script>
-        <script src="data/distrito_6.js"></script>
-        <script src="data/vialidades_7.js"></script>
-        <script src="data/limitezapopan2012_8.js"></script>
+        <script src="data/vialidades_2.js"></script>
+        <script src="data/ZPN04_VIALIDADES_3.js"></script>
+        <script src="data/ZPN04_USO_DE_SUELO_4.js"></script>
+        <script src="data/ZPN04_MANZANAS1_5.js"></script>
+        <script src="data/limitezapopan2012_6.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -65,7 +63,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[20.684817691407677,-103.55264035100866],[20.789280216324414,-103.31559809332101]]);
+        }).fitBounds([[19.941050316187518,-104.85794348185966],[21.62144131495355,-101.06016877215981]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -140,7 +138,7 @@
         });
         layer_GoogleSatellite_1;
         map.addLayer(layer_GoogleSatellite_1);
-        function pop_ZPN04_USO_DE_SUELO_2(feature, layer) {
+        function pop_vialidades_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -160,28 +158,26 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['CLAVE_CAT'] !== null ? autolinker.link(feature.properties['CLAVE_CAT'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['FeatId1'] !== null ? autolinker.link(feature.properties['FeatId1'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Nivel'] !== null ? autolinker.link(feature.properties['Nivel'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['DIS_SUB'] !== null ? autolinker.link(feature.properties['DIS_SUB'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['GENERICO'] !== null ? autolinker.link(feature.properties['GENERICO'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['JERAR_VIAL'] !== null ? autolinker.link(feature.properties['JERAR_VIAL'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NIVEL_SER'] !== null ? autolinker.link(feature.properties['NIVEL_SER'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['CLAV_VIAL'] !== null ? autolinker.link(feature.properties['CLAV_VIAL'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['HOMO_USO'] !== null ? autolinker.link(feature.properties['HOMO_USO'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ESTADO'] !== null ? autolinker.link(feature.properties['ESTADO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['GIRO'] !== null ? autolinker.link(feature.properties['GIRO'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">NOM_VIAL</th>\
+                        <td>' + (feature.properties['NOM_VIAL'] !== null ? autolinker.link(feature.properties['NOM_VIAL'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NOM_GIRO'] !== null ? autolinker.link(feature.properties['NOM_GIRO'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Superficie'] !== null ? autolinker.link(feature.properties['Superficie'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['TIPO_PAVIM'] !== null ? autolinker.link(feature.properties['TIPO_PAVIM'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -191,855 +187,28 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ZPN04_USO_DE_SUELO_2_0(feature) {
-            switch(String(feature.properties['NIVEL_SER'])) {
-                case 'AG':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(196,177,5,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'AL':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(59,237,154,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'B':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(29,207,50,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'CB':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(239,6,6,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'CC':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(239,6,6,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'CD':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(239,6,6,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'CR':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(239,6,6,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'CS':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(239,6,6,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'CV':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(239,6,6,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'EI-B':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(4,150,248,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'EI-C':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(4,150,248,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'EI-D':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(4,150,248,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'EI-R':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(4,150,248,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'EI-V':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(4,150,248,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'EV-B':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(4,150,248,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'EV-C':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(4,150,248,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'EV-D':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(4,150,248,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'EV-V':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(4,150,248,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'GH':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(196,177,5,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'H1':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,172,59,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'H2':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,172,59,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'H2-U':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,172,59,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'H3':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,172,59,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'H4':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,172,59,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'I1':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(174,3,247,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'I2':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(174,3,247,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'I3':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(174,3,247,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'IE-U':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(160,119,203,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'IN':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(220,60,148,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'IN-U':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(40,148,210,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'MB':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(225,205,75,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'MB4':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(225,205,75,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'MC':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(225,205,75,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'MD':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(225,205,75,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'MFM':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(72,212,165,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'SB':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(204,223,78,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'SC':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(204,223,78,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'SD':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(204,223,78,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'SI':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(204,223,78,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'SR':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(204,223,78,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'SV':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(204,223,78,0.84)',
-                interactive: true,
-            }
-                    break;
-                case 'TH':
-                    return {
-                pane: 'pane_ZPN04_USO_DE_SUELO_2',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(131,160,56,0.84)',
-                interactive: true,
-            }
-                    break;
-            }
-        }
-        map.createPane('pane_ZPN04_USO_DE_SUELO_2');
-        map.getPane('pane_ZPN04_USO_DE_SUELO_2').style.zIndex = 402;
-        map.getPane('pane_ZPN04_USO_DE_SUELO_2').style['mix-blend-mode'] = 'normal';
-        var layer_ZPN04_USO_DE_SUELO_2 = new L.geoJson(json_ZPN04_USO_DE_SUELO_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_ZPN04_USO_DE_SUELO_2',
-            layerName: 'layer_ZPN04_USO_DE_SUELO_2',
-            pane: 'pane_ZPN04_USO_DE_SUELO_2',
-            onEachFeature: pop_ZPN04_USO_DE_SUELO_2,
-            style: style_ZPN04_USO_DE_SUELO_2_0,
-        });
-        bounds_group.addLayer(layer_ZPN04_USO_DE_SUELO_2);
-        map.addLayer(layer_ZPN04_USO_DE_SUELO_2);
-        function pop_ZPN04_MANZANAS1_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ORIG_FID'] !== null ? autolinker.link(feature.properties['ORIG_FID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_ZPN04_MANZANAS1_3_0() {
+        function style_vialidades_2_0() {
             return {
-                pane: 'pane_ZPN04_MANZANAS1_3',
-                opacity: 1,
-                color: 'rgba(187,187,187,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fillOpacity: 0,
-                interactive: true,
+                fill: false,
+                stroke: false,
+                interactive: false
             }
         }
-        map.createPane('pane_ZPN04_MANZANAS1_3');
-        map.getPane('pane_ZPN04_MANZANAS1_3').style.zIndex = 403;
-        map.getPane('pane_ZPN04_MANZANAS1_3').style['mix-blend-mode'] = 'normal';
-        var layer_ZPN04_MANZANAS1_3 = new L.geoJson(json_ZPN04_MANZANAS1_3, {
+        map.createPane('pane_vialidades_2');
+        map.getPane('pane_vialidades_2').style.zIndex = 402;
+        map.getPane('pane_vialidades_2').style['mix-blend-mode'] = 'normal';
+        var layer_vialidades_2 = new L.geoJson(json_vialidades_2, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_ZPN04_MANZANAS1_3',
-            layerName: 'layer_ZPN04_MANZANAS1_3',
-            pane: 'pane_ZPN04_MANZANAS1_3',
-            onEachFeature: pop_ZPN04_MANZANAS1_3,
-            style: style_ZPN04_MANZANAS1_3_0,
+            interactive: false,
+            dataVar: 'json_vialidades_2',
+            layerName: 'layer_vialidades_2',
+            pane: 'pane_vialidades_2',
+            onEachFeature: pop_vialidades_2,
+            style: style_vialidades_2_0,
         });
-        bounds_group.addLayer(layer_ZPN04_MANZANAS1_3);
-        map.addLayer(layer_ZPN04_MANZANAS1_3);
-        function pop_ZPN04_COLONIAS_4(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>COLONIA</strong><br />' + (feature.properties['COLONIA'] !== null ? autolinker.link(feature.properties['COLONIA'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SECTOR'] !== null ? autolinker.link(feature.properties['SECTOR'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ZONA_OPERA'] !== null ? autolinker.link(feature.properties['ZONA_OPERA'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['LICENCIA'] !== null ? autolinker.link(feature.properties['LICENCIA'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['NOM_LIC'] !== null ? autolinker.link(feature.properties['NOM_LIC'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtValue'] !== null ? autolinker.link(feature.properties['TxtValue'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtMemo'] !== null ? autolinker.link(feature.properties['TxtMemo'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtHt'] !== null ? autolinker.link(feature.properties['TxtHt'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtRotate'] !== null ? autolinker.link(feature.properties['TxtRotate'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtWidth'] !== null ? autolinker.link(feature.properties['TxtWidth'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtOblique'] !== null ? autolinker.link(feature.properties['TxtOblique'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtGenType'] !== null ? autolinker.link(feature.properties['TxtGenType'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtJust'] !== null ? autolinker.link(feature.properties['TxtJust'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['VertAlign'] !== null ? autolinker.link(feature.properties['VertAlign'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtStyle'] !== null ? autolinker.link(feature.properties['TxtStyle'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtFont'] !== null ? autolinker.link(feature.properties['TxtFont'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtBoxHt'] !== null ? autolinker.link(feature.properties['TxtBoxHt'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtBoxWd'] !== null ? autolinker.link(feature.properties['TxtBoxWd'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtRefWd'] !== null ? autolinker.link(feature.properties['TxtRefWd'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtAttach'] !== null ? autolinker.link(feature.properties['TxtAttach'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TxtDir'] !== null ? autolinker.link(feature.properties['TxtDir'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['LnSpace'] !== null ? autolinker.link(feature.properties['LnSpace'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SpaceFact'] !== null ? autolinker.link(feature.properties['SpaceFact'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DocID'] !== null ? autolinker.link(feature.properties['DocID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['OwnerID'] !== null ? autolinker.link(feature.properties['OwnerID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['CadType'] !== null ? autolinker.link(feature.properties['CadType'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Level'] !== null ? autolinker.link(feature.properties['Level'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_ZPN04_COLONIAS_4_0() {
-            return {
-                pane: 'pane_ZPN04_COLONIAS_4',
-                opacity: 1,
-                color: 'rgba(63,125,225,1.0)',
-                dashArray: '10.0,2.0',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(232,113,141,0.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_ZPN04_COLONIAS_4');
-        map.getPane('pane_ZPN04_COLONIAS_4').style.zIndex = 404;
-        map.getPane('pane_ZPN04_COLONIAS_4').style['mix-blend-mode'] = 'normal';
-        var layer_ZPN04_COLONIAS_4 = new L.geoJson(json_ZPN04_COLONIAS_4, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_ZPN04_COLONIAS_4',
-            layerName: 'layer_ZPN04_COLONIAS_4',
-            pane: 'pane_ZPN04_COLONIAS_4',
-            onEachFeature: pop_ZPN04_COLONIAS_4,
-            style: style_ZPN04_COLONIAS_4_0,
-        });
-        bounds_group.addLayer(layer_ZPN04_COLONIAS_4);
-        map.addLayer(layer_ZPN04_COLONIAS_4);
-        function pop_ZPN04_VIALIDADES_5(feature, layer) {
+        bounds_group.addLayer(layer_vialidades_2);
+        map.addLayer(layer_vialidades_2);
+        function pop_ZPN04_VIALIDADES_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1108,11 +277,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ZPN04_VIALIDADES_5_0(feature) {
+        function style_ZPN04_VIALIDADES_3_0(feature) {
             switch(String(feature.properties['CLAV_VIAL'])) {
                 case 'VC-1':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(39,122,20,1.0)',
                 dashArray: '',
@@ -1120,12 +289,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VC-12':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(39,122,20,1.0)',
                 dashArray: '',
@@ -1133,12 +302,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VC-2':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(39,122,20,1.0)',
                 dashArray: '',
@@ -1146,12 +315,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VC-3':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(39,122,20,1.0)',
                 dashArray: '',
@@ -1159,12 +328,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VC-6':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(39,122,20,1.0)',
                 dashArray: '',
@@ -1172,12 +341,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VC-7':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(39,122,20,1.0)',
                 dashArray: '',
@@ -1185,12 +354,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VCm-1':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(94,75,8,1.0)',
                 dashArray: '',
@@ -1198,12 +367,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VCm-14':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(94,75,8,1.0)',
                 dashArray: '',
@@ -1211,12 +380,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VCm-15':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(94,75,8,1.0)',
                 dashArray: '',
@@ -1224,12 +393,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VCm-16':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(94,75,8,1.0)',
                 dashArray: '',
@@ -1237,12 +406,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VCm-2':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(94,75,8,1.0)',
                 dashArray: '',
@@ -1250,12 +419,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VCm-3':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(94,75,8,1.0)',
                 dashArray: '',
@@ -1263,12 +432,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VCm-4':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(94,75,8,1.0)',
                 dashArray: '',
@@ -1276,12 +445,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VP-1':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(2,48,253,1.0)',
                 dashArray: '',
@@ -1289,12 +458,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VP-2':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(2,48,253,1.0)',
                 dashArray: '',
@@ -1302,12 +471,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VP-3':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(2,48,253,1.0)',
                 dashArray: '',
@@ -1315,12 +484,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VR-1':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(253,16,4,1.0)',
                 dashArray: '',
@@ -1328,12 +497,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VR-3':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(253,16,4,1.0)',
                 dashArray: '',
@@ -1341,12 +510,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VSC-1':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(248,151,6,1.0)',
                 dashArray: '',
@@ -1354,12 +523,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 case 'VSC-2':
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(248,151,6,1.0)',
                 dashArray: '',
@@ -1367,12 +536,12 @@
                 lineJoin: 'bevel',
                 weight: 1.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
                 default:
                     return {
-                pane: 'pane_ZPN04_VIALIDADES_5',
+                pane: 'pane_ZPN04_VIALIDADES_3',
                 opacity: 1,
                 color: 'rgba(100,100,100,1.0)',
                 dashArray: '',
@@ -1380,26 +549,26 @@
                 lineJoin: 'round',
                 weight: 3.0,
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
                     break;
             }
         }
-        map.createPane('pane_ZPN04_VIALIDADES_5');
-        map.getPane('pane_ZPN04_VIALIDADES_5').style.zIndex = 405;
-        map.getPane('pane_ZPN04_VIALIDADES_5').style['mix-blend-mode'] = 'normal';
-        var layer_ZPN04_VIALIDADES_5 = new L.geoJson(json_ZPN04_VIALIDADES_5, {
+        map.createPane('pane_ZPN04_VIALIDADES_3');
+        map.getPane('pane_ZPN04_VIALIDADES_3').style.zIndex = 403;
+        map.getPane('pane_ZPN04_VIALIDADES_3').style['mix-blend-mode'] = 'normal';
+        var layer_ZPN04_VIALIDADES_3 = new L.geoJson(json_ZPN04_VIALIDADES_3, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_ZPN04_VIALIDADES_5',
-            layerName: 'layer_ZPN04_VIALIDADES_5',
-            pane: 'pane_ZPN04_VIALIDADES_5',
-            onEachFeature: pop_ZPN04_VIALIDADES_5,
-            style: style_ZPN04_VIALIDADES_5_0,
+            interactive: false,
+            dataVar: 'json_ZPN04_VIALIDADES_3',
+            layerName: 'layer_ZPN04_VIALIDADES_3',
+            pane: 'pane_ZPN04_VIALIDADES_3',
+            onEachFeature: pop_ZPN04_VIALIDADES_3,
+            style: style_ZPN04_VIALIDADES_3_0,
         });
-        bounds_group.addLayer(layer_ZPN04_VIALIDADES_5);
-        map.addLayer(layer_ZPN04_VIALIDADES_5);
-        function pop_distrito_6(feature, layer) {
+        bounds_group.addLayer(layer_ZPN04_VIALIDADES_3);
+        map.addLayer(layer_ZPN04_VIALIDADES_3);
+        function pop_ZPN04_USO_DE_SUELO_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1419,19 +588,709 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NOMBRE_DIS'] !== null ? autolinker.link(feature.properties['NOMBRE_DIS'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['CLAVE_CAT'] !== null ? autolinker.link(feature.properties['CLAVE_CAT'].toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Nivel'] !== null ? autolinker.link(feature.properties['Nivel'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['GENERICO'] !== null ? autolinker.link(feature.properties['GENERICO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NIVEL_SER'] !== null ? autolinker.link(feature.properties['NIVEL_SER'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HOMO_USO'] !== null ? autolinker.link(feature.properties['HOMO_USO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['GIRO'] !== null ? autolinker.link(feature.properties['GIRO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NOM_GIRO'] !== null ? autolinker.link(feature.properties['NOM_GIRO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Superficie'] !== null ? autolinker.link(feature.properties['Superficie'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ZPN04_USO_DE_SUELO_4_0(feature) {
+            switch(String(feature.properties['NIVEL_SER'])) {
+                case 'AG':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(196,177,5,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'AL':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(59,237,154,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'B':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(29,207,50,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'CB':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,6,6,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'CC':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,6,6,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'CD':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,6,6,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'CR':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,6,6,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'CS':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,6,6,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'CV':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(239,6,6,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'EI-B':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,150,248,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'EI-C':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,150,248,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'EI-D':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,150,248,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'EI-R':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,150,248,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'EI-V':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,150,248,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'EV-B':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,150,248,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'EV-C':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,150,248,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'EV-D':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,150,248,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'EV-V':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(4,150,248,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'GH':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(196,177,5,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'H1':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,172,59,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'H2':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,172,59,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'H2-U':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,172,59,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'H3':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,172,59,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'H4':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(252,172,59,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'I1':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(174,3,247,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'I2':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(174,3,247,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'I3':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(174,3,247,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'IE-U':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(160,119,203,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'IN':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(220,60,148,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'IN-U':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(40,148,210,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'MB':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,205,75,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'MB4':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,205,75,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'MC':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,205,75,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'MD':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(225,205,75,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'MFM':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(72,212,165,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'SB':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,223,78,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'SC':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,223,78,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'SD':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,223,78,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'SI':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,223,78,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'SR':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,223,78,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'SV':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(204,223,78,0.84)',
+                interactive: false,
+            }
+                    break;
+                case 'TH':
+                    return {
+                pane: 'pane_ZPN04_USO_DE_SUELO_4',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(131,160,56,0.84)',
+                interactive: false,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_ZPN04_USO_DE_SUELO_4');
+        map.getPane('pane_ZPN04_USO_DE_SUELO_4').style.zIndex = 404;
+        map.getPane('pane_ZPN04_USO_DE_SUELO_4').style['mix-blend-mode'] = 'normal';
+        var layer_ZPN04_USO_DE_SUELO_4 = new L.geoJson(json_ZPN04_USO_DE_SUELO_4, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_ZPN04_USO_DE_SUELO_4',
+            layerName: 'layer_ZPN04_USO_DE_SUELO_4',
+            pane: 'pane_ZPN04_USO_DE_SUELO_4',
+            onEachFeature: pop_ZPN04_USO_DE_SUELO_4,
+            style: style_ZPN04_USO_DE_SUELO_4_0,
+        });
+        bounds_group.addLayer(layer_ZPN04_USO_DE_SUELO_4);
+        map.addLayer(layer_ZPN04_USO_DE_SUELO_4);
+        function pop_ZPN04_MANZANAS1_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Id'] !== null ? autolinker.link(feature.properties['Id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['NUM_DIST'] !== null ? autolinker.link(feature.properties['NUM_DIST'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SUP_M2'] !== null ? autolinker.link(feature.properties['SUP_M2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SUP_HAS'] !== null ? autolinker.link(feature.properties['SUP_HAS'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ORIG_FID'] !== null ? autolinker.link(feature.properties['ORIG_FID'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1441,36 +1300,34 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_distrito_6_0() {
+        function style_ZPN04_MANZANAS1_5_0() {
             return {
-                pane: 'pane_distrito_6',
+                pane: 'pane_ZPN04_MANZANAS1_5',
                 opacity: 1,
-                color: 'rgba(68,78,212,1.0)',
-                dashArray: '25.0,5.0',
+                color: 'rgba(187,187,187,1.0)',
+                dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 5.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(141,90,153,0.0)',
-                interactive: true,
+                weight: 1.0, 
+                fillOpacity: 0,
+                interactive: false,
             }
         }
-        map.createPane('pane_distrito_6');
-        map.getPane('pane_distrito_6').style.zIndex = 406;
-        map.getPane('pane_distrito_6').style['mix-blend-mode'] = 'normal';
-        var layer_distrito_6 = new L.geoJson(json_distrito_6, {
+        map.createPane('pane_ZPN04_MANZANAS1_5');
+        map.getPane('pane_ZPN04_MANZANAS1_5').style.zIndex = 405;
+        map.getPane('pane_ZPN04_MANZANAS1_5').style['mix-blend-mode'] = 'normal';
+        var layer_ZPN04_MANZANAS1_5 = new L.geoJson(json_ZPN04_MANZANAS1_5, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_distrito_6',
-            layerName: 'layer_distrito_6',
-            pane: 'pane_distrito_6',
-            onEachFeature: pop_distrito_6,
-            style: style_distrito_6_0,
+            interactive: false,
+            dataVar: 'json_ZPN04_MANZANAS1_5',
+            layerName: 'layer_ZPN04_MANZANAS1_5',
+            pane: 'pane_ZPN04_MANZANAS1_5',
+            onEachFeature: pop_ZPN04_MANZANAS1_5,
+            style: style_ZPN04_MANZANAS1_5_0,
         });
-        bounds_group.addLayer(layer_distrito_6);
-        map.addLayer(layer_distrito_6);
-        function pop_vialidades_7(feature, layer) {
+        bounds_group.addLayer(layer_ZPN04_MANZANAS1_5);
+        map.addLayer(layer_ZPN04_MANZANAS1_5);
+        function pop_limitezapopan2012_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1490,77 +1347,8 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['FeatId1'] !== null ? autolinker.link(feature.properties['FeatId1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['DIS_SUB'] !== null ? autolinker.link(feature.properties['DIS_SUB'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['JERAR_VIAL'] !== null ? autolinker.link(feature.properties['JERAR_VIAL'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['CLAV_VIAL'] !== null ? autolinker.link(feature.properties['CLAV_VIAL'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['ESTADO'] !== null ? autolinker.link(feature.properties['ESTADO'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NOM_VIAL</th>\
-                        <td>' + (feature.properties['NOM_VIAL'] !== null ? autolinker.link(feature.properties['NOM_VIAL'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['TIPO_PAVIM'] !== null ? autolinker.link(feature.properties['TIPO_PAVIM'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_vialidades_7_0() {
-            return {
-                fill: false,
-                stroke: false,
-                interactive: false
-            }
-        }
-        map.createPane('pane_vialidades_7');
-        map.getPane('pane_vialidades_7').style.zIndex = 407;
-        map.getPane('pane_vialidades_7').style['mix-blend-mode'] = 'normal';
-        var layer_vialidades_7 = new L.geoJson(json_vialidades_7, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_vialidades_7',
-            layerName: 'layer_vialidades_7',
-            pane: 'pane_vialidades_7',
-            onEachFeature: pop_vialidades_7,
-            style: style_vialidades_7_0,
-        });
-        bounds_group.addLayer(layer_vialidades_7);
-        map.addLayer(layer_vialidades_7);
-        function pop_limitezapopan2012_8(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['NOMBRE'] !== null ? autolinker.link(feature.properties['NOMBRE'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">NOMBRE</th>\
+                        <td>' + (feature.properties['NOMBRE'] !== null ? autolinker.link(feature.properties['NOMBRE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['CVEGEO'] !== null ? autolinker.link(feature.properties['CVEGEO'].toLocaleString()) : '') + '</td>\
@@ -1585,9 +1373,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_limitezapopan2012_8_0() {
+        function style_limitezapopan2012_6_0() {
             return {
-                pane: 'pane_limitezapopan2012_8',
+                pane: 'pane_limitezapopan2012_6',
                 opacity: 1,
                 color: 'rgba(255,1,1,1.0)',
                 dashArray: '6.0,3.0',
@@ -1595,23 +1383,23 @@
                 lineJoin: 'miter',
                 weight: 3.0, 
                 fillOpacity: 0,
-                interactive: true,
+                interactive: false,
             }
         }
-        map.createPane('pane_limitezapopan2012_8');
-        map.getPane('pane_limitezapopan2012_8').style.zIndex = 408;
-        map.getPane('pane_limitezapopan2012_8').style['mix-blend-mode'] = 'normal';
-        var layer_limitezapopan2012_8 = new L.geoJson(json_limitezapopan2012_8, {
+        map.createPane('pane_limitezapopan2012_6');
+        map.getPane('pane_limitezapopan2012_6').style.zIndex = 406;
+        map.getPane('pane_limitezapopan2012_6').style['mix-blend-mode'] = 'normal';
+        var layer_limitezapopan2012_6 = new L.geoJson(json_limitezapopan2012_6, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_limitezapopan2012_8',
-            layerName: 'layer_limitezapopan2012_8',
-            pane: 'pane_limitezapopan2012_8',
-            onEachFeature: pop_limitezapopan2012_8,
-            style: style_limitezapopan2012_8_0,
+            interactive: false,
+            dataVar: 'json_limitezapopan2012_6',
+            layerName: 'layer_limitezapopan2012_6',
+            pane: 'pane_limitezapopan2012_6',
+            onEachFeature: pop_limitezapopan2012_6,
+            style: style_limitezapopan2012_6_0,
         });
-        bounds_group.addLayer(layer_limitezapopan2012_8);
-        map.addLayer(layer_limitezapopan2012_8);
+        bounds_group.addLayer(layer_limitezapopan2012_6);
+        map.addLayer(layer_limitezapopan2012_6);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -1623,15 +1411,17 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var overlaysTree = [
-            {label: '<img src="legend/limitezapopan2012_8.png" /> limite zapopan 2012', layer: layer_limitezapopan2012_8},
-            {label: 'vialidades', layer: layer_vialidades_7},
-            {label: '<img src="legend/distrito_6.png" /> distrito', layer: layer_distrito_6},
-            {label: 'ZPN04_VIALIDADES<br /><table><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VC10.png" /></td><td>VC-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VC121.png" /></td><td>VC-12</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VC22.png" /></td><td>VC-2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VC33.png" /></td><td>VC-3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VC64.png" /></td><td>VC-6</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VC75.png" /></td><td>VC-7</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VCm16.png" /></td><td>VCm-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VCm147.png" /></td><td>VCm-14</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VCm158.png" /></td><td>VCm-15</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VCm169.png" /></td><td>VCm-16</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VCm210.png" /></td><td>VCm-2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VCm311.png" /></td><td>VCm-3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VCm412.png" /></td><td>VCm-4</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VP113.png" /></td><td>VP-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VP214.png" /></td><td>VP-2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VP315.png" /></td><td>VP-3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VR116.png" /></td><td>VR-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VR317.png" /></td><td>VR-3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VSC118.png" /></td><td>VSC-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_VSC219.png" /></td><td>VSC-2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_5_20.png" /></td><td></td></tr></table>', layer: layer_ZPN04_VIALIDADES_5},
-            {label: '<img src="legend/ZPN04_COLONIAS_4.png" /> ZPN04_COLONIAS', layer: layer_ZPN04_COLONIAS_4},
-            {label: '<img src="legend/ZPN04_MANZANAS1_3.png" /> ZPN04_MANZANAS1', layer: layer_ZPN04_MANZANAS1_3},
-            {label: 'ZPN04_USO_DE_SUELO<br /><table><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_AG0.png" /></td><td>AG</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_AL1.png" /></td><td>AL</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_B2.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_CB3.png" /></td><td>CB</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_CC4.png" /></td><td>CC</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_CD5.png" /></td><td>CD</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_CR6.png" /></td><td>CR</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_CS7.png" /></td><td>CS</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_CV8.png" /></td><td>CV</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_EIB9.png" /></td><td>EI-B</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_EIC10.png" /></td><td>EI-C</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_EID11.png" /></td><td>EI-D</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_EIR12.png" /></td><td>EI-R</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_EIV13.png" /></td><td>EI-V</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_EVB14.png" /></td><td>EV-B</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_EVC15.png" /></td><td>EV-C</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_EVD16.png" /></td><td>EV-D</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_EVV17.png" /></td><td>EV-V</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_GH18.png" /></td><td>GH</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_H119.png" /></td><td>H1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_H220.png" /></td><td>H2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_H2U21.png" /></td><td>H2-U</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_H322.png" /></td><td>H3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_H423.png" /></td><td>H4</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_I124.png" /></td><td>I1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_I225.png" /></td><td>I2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_I326.png" /></td><td>I3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_IEU27.png" /></td><td>IE-U</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_IN28.png" /></td><td>IN</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_INU29.png" /></td><td>IN-U</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_MB30.png" /></td><td>MB</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_MB431.png" /></td><td>MB4</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_MC32.png" /></td><td>MC</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_MD33.png" /></td><td>MD</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_MFM34.png" /></td><td>MFM</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_SB35.png" /></td><td>SB</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_SC36.png" /></td><td>SC</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_SD37.png" /></td><td>SD</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_SI38.png" /></td><td>SI</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_SR39.png" /></td><td>SR</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_SV40.png" /></td><td>SV</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_2_TH41.png" /></td><td>TH</td></tr></table>', layer: layer_ZPN04_USO_DE_SUELO_2},
+        {label: '<b>Límites</b>', selectAllCheckbox: true, children: [
+            {label: '<img src="legend/limitezapopan2012_6.png" /> limite zapopan 2012', layer: layer_limitezapopan2012_6},
+            {label: '<img src="legend/ZPN04_MANZANAS1_5.png" /> ZPN04_MANZANAS1', layer: layer_ZPN04_MANZANAS1_5},]},
+        {label: '<b>Usos</b>', selectAllCheckbox: true, children: [
+            {label: 'ZPN04_USO_DE_SUELO<br /><table><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_AG0.png" /></td><td>AG</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_AL1.png" /></td><td>AL</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_B2.png" /></td><td>B</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_CB3.png" /></td><td>CB</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_CC4.png" /></td><td>CC</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_CD5.png" /></td><td>CD</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_CR6.png" /></td><td>CR</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_CS7.png" /></td><td>CS</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_CV8.png" /></td><td>CV</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_EIB9.png" /></td><td>EI-B</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_EIC10.png" /></td><td>EI-C</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_EID11.png" /></td><td>EI-D</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_EIR12.png" /></td><td>EI-R</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_EIV13.png" /></td><td>EI-V</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_EVB14.png" /></td><td>EV-B</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_EVC15.png" /></td><td>EV-C</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_EVD16.png" /></td><td>EV-D</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_EVV17.png" /></td><td>EV-V</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_GH18.png" /></td><td>GH</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_H119.png" /></td><td>H1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_H220.png" /></td><td>H2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_H2U21.png" /></td><td>H2-U</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_H322.png" /></td><td>H3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_H423.png" /></td><td>H4</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_I124.png" /></td><td>I1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_I225.png" /></td><td>I2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_I326.png" /></td><td>I3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_IEU27.png" /></td><td>IE-U</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_IN28.png" /></td><td>IN</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_INU29.png" /></td><td>IN-U</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_MB30.png" /></td><td>MB</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_MB431.png" /></td><td>MB4</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_MC32.png" /></td><td>MC</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_MD33.png" /></td><td>MD</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_MFM34.png" /></td><td>MFM</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_SB35.png" /></td><td>SB</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_SC36.png" /></td><td>SC</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_SD37.png" /></td><td>SD</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_SI38.png" /></td><td>SI</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_SR39.png" /></td><td>SR</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_SV40.png" /></td><td>SV</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_USO_DE_SUELO_4_TH41.png" /></td><td>TH</td></tr></table>', layer: layer_ZPN04_USO_DE_SUELO_4},]},
+        {label: '<b>Vialidades</b>', selectAllCheckbox: true, children: [
+            {label: 'ZPN04_VIALIDADES<br /><table><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VC10.png" /></td><td>VC-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VC121.png" /></td><td>VC-12</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VC22.png" /></td><td>VC-2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VC33.png" /></td><td>VC-3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VC64.png" /></td><td>VC-6</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VC75.png" /></td><td>VC-7</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VCm16.png" /></td><td>VCm-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VCm147.png" /></td><td>VCm-14</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VCm158.png" /></td><td>VCm-15</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VCm169.png" /></td><td>VCm-16</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VCm210.png" /></td><td>VCm-2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VCm311.png" /></td><td>VCm-3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VCm412.png" /></td><td>VCm-4</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VP113.png" /></td><td>VP-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VP214.png" /></td><td>VP-2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VP315.png" /></td><td>VP-3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VR116.png" /></td><td>VR-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VR317.png" /></td><td>VR-3</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VSC118.png" /></td><td>VSC-1</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_VSC219.png" /></td><td>VSC-2</td></tr><tr><td style="text-align: center;"><img src="legend/ZPN04_VIALIDADES_3_20.png" /></td><td></td></tr></table>', layer: layer_ZPN04_VIALIDADES_3},
+            {label: 'vialidades', layer: layer_vialidades_2},]},
+        {label: '<b>BaseMap</b>', selectAllCheckbox: true, children: [
             {label: "Google Satellite", layer: layer_GoogleSatellite_1, radioGroup: 'bm' },
-            {label: "ESRI Topo", layer: layer_ESRITopo_0, radioGroup: 'bm' },]
+            {label: "ESRI Topo", layer: layer_ESRITopo_0, radioGroup: 'bm' },]},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -1694,27 +1484,27 @@
         });       
         setBounds();
         var i = 0;
-        layer_vialidades_7.eachLayer(function(layer) {
+        layer_vialidades_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['NOM_VIAL'] !== null?String('<div style="color: #323232; font-size: 3pt; font-family: \'Calibri\', sans-serif;">' + layer.feature.properties['NOM_VIAL']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_vialidades_7'});
+            layer.bindTooltip((layer.feature.properties['NOM_VIAL'] !== null?String('<div style="color: #323232; font-size: 3pt; font-family: \'Calibri\', sans-serif;">' + layer.feature.properties['NOM_VIAL']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_vialidades_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_vialidades_7]);
+        resetLabels([layer_vialidades_2]);
         map.on("zoomend", function(){
-            resetLabels([layer_vialidades_7]);
+            resetLabels([layer_vialidades_2]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_vialidades_7]);
+            resetLabels([layer_vialidades_2]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_vialidades_7]);
+            resetLabels([layer_vialidades_2]);
         });
         </script>
     </body>
